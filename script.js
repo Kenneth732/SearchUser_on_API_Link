@@ -22,6 +22,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
     });
 
     function displayUser(user){
-        const userList = document.querySelector('#user-list')
+        const userList = document.querySelector('#user-list');
+        const li = document.createElement('li')
     }
 })
