@@ -21,5 +21,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
         console.log('Error:', error)
     });
 
-    function displayUser(user){}
+    function displayUser(user){
+        const userList = document.querySelector('#user-list')
+    }
 })
