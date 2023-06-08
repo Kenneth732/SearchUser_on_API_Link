@@ -1,6 +1,6 @@
 # BlackCoder@CodeWise.com
 
-
+> script.js file
 # > ```Search User On Git ```
 
 > 1. The code starts by selecting the form element with the ID "form" and adding an event listener for the "submit" event. This event will be triggered when the form is submitted.
@@ -97,7 +97,7 @@ function displayRepos(repos) {
 ```
 
 # _________________________________________________________________________________
-
+> App.js file
 # OR the other way round working with js 
 
 -1. `let userList = [];`: This line initializes an empty array called `userList` to store the search results.
