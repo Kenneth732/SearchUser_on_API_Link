@@ -27,5 +27,8 @@ document.querySelector('#form').addEventListener('submit', (e) => {
         const link = document.createElement('a');
         link.href = user.html_url;
         link.target = '_blank';
+        link.textContent = user.login;
+        li.appendChild(link);
+        userList.appendChild(li);
     }
 })
