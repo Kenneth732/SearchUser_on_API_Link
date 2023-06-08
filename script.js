@@ -25,5 +25,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
         const userList = document.querySelector('#user-list');
         const li = document.createElement('li');
         const link = document.createElement('a');
+        link.href = user.html_url;
+        link.target = '_blank';
     }
 })
