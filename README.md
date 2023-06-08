@@ -96,3 +96,90 @@ function displayRepos(repos) {
 }
 ```
 
+# _________________________________________________________________________________
+
+# OR the other way round working with js 
+
+-1. `let userList = [];`: This line initializes an empty array called `userList` to store the search results.
+
+-2. `document.querySelector('#form').addEventListener('submit', (e) => {...});`: This attaches an event listener to the form with the id `form`. It listens for the form submission event.
+
+-3. `(e) => {...}`: This is an arrow function that serves as the event handler for the form submission event.
+
+-4. `e.preventDefault();`: This prevents the default form submission behavior, which would cause the page to refresh.
+
+-5. `let searchTerm = document.getElementById('search').value;`: This retrieves the value entered in the input field with the id `search` and stores it in the variable `searchTerm`.
+
+-6. `fetch(`https://api.github.com/search/users?q=${searchTerm}`, {...})`: This initiates a fetch request to the GitHub API's User Search Endpoint, using the `searchTerm` as the query parameter.
+
+-7. `headers: {...}`: This specifies the headers for the request. In this case, it includes the Accept header to request the response in the v3 version of the GitHub API.
+
+-8. `.then(response => response.json())`: This chain of `.then()` functions processes the response from the API call and converts it to JSON format.
+
+-9. `.then(data => {...})`: This receives the parsed JSON data from the previous step and assigns the `data.items` (an array of users) to the `userList` variable.
+
+-10. `displayUsers(userList);`: This calls the `displayUsers` function and passes the `userList` as an argument to render the user list on the page.
+
+-11. `.catch(error => {...})`: This handles any errors that occur during the fetch request and logs the error to the console.
+
+-12. `document.getElementById('search').value = '';`: This clears the input field by setting its value to an empty string.
+
+-13. `function displayUsers(users) {...}`: This is the definition of the `displayUsers` function, which takes an array of users as an argument.
+
+-14. `let userContainer = document.querySelector('#user-list');`: This selects the element with the id `user-list` and assigns it to the `userContainer` variable.
+
+-15. `userContainer.innerHTML = '';`: This clears the content of the `userContainer` by setting its `innerHTML` to an empty string.
+
+-16. `users.forEach(user => {...})`: This iterates over each user in the `users` array.
+
+-17. `let userElement = document.createElement('li');`: This creates a new `li` element to represent a user.
+
+-18. `let userLink = document.createElement('a');`: This creates a new `a` element to hold the link to the user's profile.
+
+-19. `userLink.href = user.html_url;`: This sets the `href` attribute of the `userLink` to the user's GitHub profile URL.
+
+-20. `userLink.target = '_blank';`: This sets the `target` attribute of the `userLink` to `_blank`, which opens the link in a new tab.
+
+-21. `userLink.textContent = user.login;`: This sets the text content of the `userLink` to the user's login (username).
+
+-22. `userElement.appendChild(userLink);`: This appends the `userLink` as a child to the `userElement`.
+
+-23. `userContainer.appendChild(userElement);`: This appends the `userElement` as a child to the `userContainer`, which is the user list on the page.
+
+-24. `userElement.addEventListener('click', () => {...})`:
+
+ This attaches an event listener to each `userElement` that listens for a click event.
+
+-25. `fetch(`https://api.github.com/users/${user.login}/repos`, {...})`: This fetches the repositories of the clicked user by making a request to the GitHub API's User Repositories Endpoint.
+
+-26. `headers: {...}`: This specifies the headers for the request, including the Accept header for the v3 version of the GitHub API.
+
+-27. `.then(response => response.json())`: This processes the response from the API call and converts it to JSON format.
+
+-28. `.then(data => {...})`: This receives the parsed JSON data from the previous step and assigns it to the `repos` variable.
+
+-29. `displayRepos(repos);`: This calls the `displayRepos` function and passes the `repos` array as an argument to render the repositories on the page.
+
+-30. `.catch(error => {...})`: This handles any errors that occur during the fetch request and logs the error to the console.
+
+-31. `function displayRepos(repos) {...}`: This is the definition of the `displayRepos` function, which takes an array of repositories as an argument.
+
+-32. `let reposContainer = document.querySelector('#repos-list');`: This selects the element with the id `repos-list` and assigns it to the `reposContainer` variable.
+
+-33. `reposContainer.innerHTML = '';`: This clears the content of the `reposContainer` by setting its `innerHTML` to an empty string.
+
+-34. `repos.forEach(repo => {...})`: This iterates over each repository in the `repos` array.
+
+-35. `let repoElement = document.createElement('li');`: This creates a new `li` element to represent a repository.
+
+-36. `let repoLink = document.createElement('a');`: This creates a new `a` element to hold the link to the repository.
+
+-37. `repoLink.href = repo.html_url;`: This sets the `href` attribute of the `repoLink` to the repository's GitHub URL.
+
+-38. `repoLink.target = '_blank';`: This sets the `target` attribute of the `repoLink` to `_blank`, which opens the link in a new tab.
+
+-39. `repoLink.textContent = repo.name;`: This sets the text content of the `repoLink` to the name of the repository.
+
+-40. `repoElement.appendChild(repoLink);`: This appends the `repoLink` as a child to the `repoElement`.
+
+-41. `reposContainer.appendChild(repoElement);`: This appends the `repoElement` as a child to the `reposContainer`, which is the repository list on the page.
